@@ -91,11 +91,6 @@ namespace MathQuiz
 
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -118,7 +113,8 @@ namespace MathQuiz
             else if (timeLeft > 0)
             {
                 timeLeft--;
-                lblTime.Text = timeLeft + " seconds.";
+                if(timeLeft <= 5) lblTime.BackColor = Color.Red;
+                lblTime.Text = timeLeft + " seconds";
             }
             else
             {
@@ -131,6 +127,37 @@ namespace MathQuiz
                 numQuotient.Value = div1 / div2;
                 btnStart.Enabled = true;
             }
+        }
+
+        private void answer_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown answerBox = sender as NumericUpDown;
+
+            if (answerBox != null)
+            {
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0, lengthOfAnswer);
+            }
+        }
+
+        private void checkSum(object sender, EventArgs e)
+        {
+            if (numSum.Value == add1 + add2) numSum.BackColor = Color.Green;
+        }
+
+        private void checkDiff(object sender, EventArgs e)
+        {
+            if (numDiff.Value == minus1 - minus2) numDiff.BackColor = Color.Green;
+        }
+
+        private void checkProd(object sender, EventArgs e)
+        {
+            if (numProd.Value == times1 * times2) numProd.BackColor = Color.Green;
+        }
+
+        private void checkQuo(object sender, EventArgs e)
+        {
+            if (numQuotient.Value == div1 / div2) numQuotient.BackColor = Color.Green;
         }
     }
 }

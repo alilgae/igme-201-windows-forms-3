@@ -126,6 +126,8 @@
             this.numSum.Name = "numSum";
             this.numSum.Size = new System.Drawing.Size(100, 48);
             this.numSum.TabIndex = 1;
+            this.numSum.ValueChanged += new System.EventHandler(this.checkSum);
+            this.numSum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // numDiff
             // 
@@ -135,7 +137,8 @@
             this.numDiff.Name = "numDiff";
             this.numDiff.Size = new System.Drawing.Size(100, 48);
             this.numDiff.TabIndex = 2;
-            this.numDiff.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.numDiff.ValueChanged += new System.EventHandler(this.checkDiff);
+            this.numDiff.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // lblMinusEquals
             // 
@@ -189,6 +192,8 @@
             this.numProd.Name = "numProd";
             this.numProd.Size = new System.Drawing.Size(100, 48);
             this.numProd.TabIndex = 3;
+            this.numProd.ValueChanged += new System.EventHandler(this.checkProd);
+            this.numProd.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // lblTimesEquals
             // 
@@ -238,6 +243,8 @@
             this.numQuotient.Name = "numQuotient";
             this.numQuotient.Size = new System.Drawing.Size(100, 48);
             this.numQuotient.TabIndex = 4;
+            this.numQuotient.ValueChanged += new System.EventHandler(this.checkQuo);
+            this.numQuotient.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // lblDivEquals
             // 
