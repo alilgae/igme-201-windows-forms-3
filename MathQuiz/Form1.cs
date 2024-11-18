@@ -22,6 +22,8 @@ namespace MathQuiz
         int div1;
         int div2;
 
+        int timeLeft;
+
         public void StartQuiz()
         {
             add1 = rng.Next(51);
@@ -56,6 +58,18 @@ namespace MathQuiz
             lblDivRight.Text = div2.ToString();
 
             numQuotient.Value = 0;
+
+            timeLeft = 30;
+            lblTime.Text = "30 seconds";
+            timer.Start();
+        }
+
+        private bool CheckAnswer()
+        {
+            return (add1 + add2 == numSum.Value)
+                && (minus1 - minus2 == numDiff.Value)
+                && (times1 * times2 == numProd.Value)
+                && (div1 / div2 == numQuotient.Value);
         }
         public Form1()
         {
@@ -91,6 +105,32 @@ namespace MathQuiz
         {
             StartQuiz();
             btnStart.Enabled = false;
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (CheckAnswer())
+            {
+                timer.Stop();
+                MessageBox.Show("You got all the answers right!", "Congratulations!");
+                btnStart.Enabled = true;
+            }
+            else if (timeLeft > 0)
+            {
+                timeLeft--;
+                lblTime.Text = timeLeft + " seconds.";
+            }
+            else
+            {
+                timer.Stop();
+                lblTime.Text = "Time's up!";
+                MessageBox.Show("You didn't finish in time.", "Better luck next time!");
+                numSum.Value = add1 + add2;
+                numDiff.Value = minus1 - minus2;
+                numProd.Value = times1 * times2;
+                numQuotient.Value = div1 / div2;
+                btnStart.Enabled = true;
+            }
         }
     }
 }

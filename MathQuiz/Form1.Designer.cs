@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblTimeLeft = new System.Windows.Forms.Label();
             this.lblPlusLeft = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@
             this.lblDiv = new System.Windows.Forms.Label();
             this.lblDivLeft = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numSum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDiff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numProd)).BeginInit();
@@ -63,17 +65,18 @@
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.Location = new System.Drawing.Point(266, 9);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(200, 30);
+            this.lblTime.Size = new System.Drawing.Size(200, 40);
             this.lblTime.TabIndex = 0;
             // 
             // lblTimeLeft
             // 
             this.lblTimeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeLeft.Location = new System.Drawing.Point(104, 9);
+            this.lblTimeLeft.Location = new System.Drawing.Point(86, 9);
             this.lblTimeLeft.Name = "lblTimeLeft";
-            this.lblTimeLeft.Size = new System.Drawing.Size(150, 30);
+            this.lblTimeLeft.Size = new System.Drawing.Size(168, 40);
             this.lblTimeLeft.TabIndex = 1;
             this.lblTimeLeft.Text = "Time Left";
+            this.lblTimeLeft.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPlusLeft
             // 
@@ -288,6 +291,11 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -354,6 +362,7 @@
         private System.Windows.Forms.Label lblDiv;
         private System.Windows.Forms.Label lblDivLeft;
         private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
